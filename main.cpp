@@ -1,4 +1,8 @@
-#include<GL/glut.h>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 #include<iostream>
 #include<stdlib.h>
 #include<string.h>
@@ -6,10 +10,10 @@
 using namespace std;
 int flag=0;
 
-void drawstring (float x,float y,const char *s) {   
+void drawstring (float x,float y,const char *s) {
  const char *c;
     glRasterPos2f(x, y);
-    for (c=s; *c != '\0'; c++) 
+    for (c=s; *c != '\0'; c++)
     glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,*c);
 
 };
@@ -30,7 +34,7 @@ void drawstring (float x,float y,const char *s) {
  drawstring(40,45,"GANESHPRASAD 1PE14CS041");
  drawstring(40,40,"HARSHA VAMSI 1PE14CS047");
  glColor3f(1,0.5,0);
- 
+
  glColor3f(1,0.1,1);
  drawstring(42,20,"PRESS ENTER TO START");
  glFlush();
@@ -44,7 +48,7 @@ void mydisplay(void)
  if(flag==0)
   frontscreen();
  if(flag==1)
-  glClearColor(1.0,1.0,1.0,1.0); 
+  glClearColor(1.0,1.0,1.0,1.0);
 }
 
 void key( unsigned char key, int x, int y )
