@@ -1,15 +1,19 @@
-#include<GL/glut.h>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 #include<iostream>
 #include<stdlib.h>
 #include<string.h>
 
 using namespace std;
-int flag=0;
+bool flag=false;
 
-void drawstring (float x,float y,const char *s) {   
+void drawstring (float x,float y,const char *s) {
  const char *c;
     glRasterPos2f(x, y);
-    for (c=s; *c != '\0'; c++) 
+    for (c=s; *c != '\0'; c++)
     glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,*c);
 
 };
@@ -30,7 +34,7 @@ void drawstring (float x,float y,const char *s) {
  drawstring(40,45,"GANESHPRASAD 1PE14CS041");
  drawstring(40,40,"HARSHA VAMSI 1PE14CS047");
  glColor3f(1,0.5,0);
- 
+
  glColor3f(1,0.1,1);
  drawstring(42,20,"PRESS ENTER TO START");
  glFlush();
@@ -38,25 +42,32 @@ void drawstring (float x,float y,const char *s) {
 
 
 
-void mydisplay(void)
+void mydisplay()
 {
- glClear(GL_COLOR_BUFFER_BIT);
- if(flag==0)
+
+ if(!flag){
+     glClear(GL_COLOR_BUFFER_BIT);
   frontscreen();
- if(flag==1)
-  glClearColor(1.0,1.0,1.0,1.0); 
+  }
+ else{
+     glClear(GL_COLOR_BUFFER_BIT);
+     glFlush();
+  glClearColor(1.0,1.0,1.0,1.0);
+  }
 }
 
-void key( unsigned char key, int x, int y )
-
+void process_enter_key(int key, int x, int y)
 {
- switch(key)
- {
- case 13:if(flag==0)
-    flag=1;
-  break;
-       }
-    mydisplay();
+     switch (key)
+    {
+       case 13 :
+         printf("Enter\n");
+            flag=true;
+            mydisplay();
+
+    }
+    printf("Flag : %d",flag);
+
 }
 
 void myinit()
@@ -74,9 +85,10 @@ int main(int argc, char** argv)
 	glutInitWindowSize(500,500);
 	glutInitWindowPosition(0,0);
 	glutCreateWindow("ckt");
-	glutDisplayFunc(mydisplay);
-	glutKeyboardFunc(key);
-	myinit();
+    myinit();
+	glutDisplayFunc(&mydisplay);
+	glutSpecialFunc( process_enter_key );
+
 	glutMainLoop();
 	return 0;
 	}
