@@ -7,6 +7,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include<string.h>
+#include<stdio.h>
 
 using namespace std;
 bool flag=false;
@@ -52,7 +53,7 @@ void mydisplay()
 else
 {
     glFlush();
- glClearColor(1.0,1.0,1.0,1.0);
+ glClearColor(1.0,0.0,0.0,1.0);
  }
 
 
@@ -93,7 +94,6 @@ int main(int argc, char** argv)
 	glutDisplayFunc(&mydisplay);
     glutIdleFunc(mydisplay);
 	glutSpecialFunc( process_enter_key );
-
 	glutMainLoop();
 	return 0;
 	}
