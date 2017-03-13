@@ -1,5 +1,6 @@
 #ifdef __APPLE__
 #include <GLUT/glut.h>
+#include<OpenGL/gl.h>
 #else
 #include <GL/glut.h>
 #endif
@@ -44,16 +45,17 @@ void drawstring (float x,float y,const char *s) {
 
 void mydisplay()
 {
+    glClear(GL_COLOR_BUFFER_BIT);
+ if(flag == false){
+ frontscreen();
+  }
+else
+{
+    glFlush();
+ glClearColor(1.0,1.0,1.0,1.0);
+ }
 
- if(!flag){
-     glClear(GL_COLOR_BUFFER_BIT);
-  frontscreen();
-  }
- else{
-     glClear(GL_COLOR_BUFFER_BIT);
-     glFlush();
-  glClearColor(1.0,1.0,1.0,1.0);
-  }
+
 }
 
 void process_enter_key(int key, int x, int y)
@@ -63,10 +65,12 @@ void process_enter_key(int key, int x, int y)
        case 13 :
          printf("Enter\n");
             flag=true;
-            mydisplay();
+            printf("Flag : %d",flag);
+             mydisplay();
+            break;
 
     }
-    printf("Flag : %d",flag);
+
 
 }
 
@@ -87,6 +91,7 @@ int main(int argc, char** argv)
 	glutCreateWindow("ckt");
     myinit();
 	glutDisplayFunc(&mydisplay);
+    glutIdleFunc(mydisplay);
 	glutSpecialFunc( process_enter_key );
 
 	glutMainLoop();
