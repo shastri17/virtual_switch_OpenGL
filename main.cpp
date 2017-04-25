@@ -18,6 +18,7 @@
 int obj;
 int posX,posY,posZ;
 char str[50];
+  float counter = 1.0;
 using namespace std;
 void menu_select(int item){
     obj = item;
@@ -425,7 +426,7 @@ computer();
 }
 }
 
-void path3()
+void path3()// top-diagonal
 {
   for(int j=0;j<strlen(str);j++){
       int toplx=15;
@@ -497,129 +498,27 @@ void path3()
   topty=73;
   toprx=34.5;
   topby=72.5;
-  for(int i=0;i<40;i++)
+
+  for(int i=0; i<40;i++)
   {
       computer();
-      if(i<4){
+
   glColor3f(1.0,1.0,1.0);
   glBegin(GL_QUADS);
-  glVertex2f(toplx+i-1,topby-i);
-  glVertex2f(toplx+i-1,topty-i);
-  glVertex2f(toprx+i-1,topty-i);
-  glVertex2f(toprx+i-1,topby-i);
+  glVertex2f(toplx+(counter),topby-i);
+  glVertex2f(toplx+(counter),topty-i);
+  glVertex2f(toprx+(counter),topty-i);
+  glVertex2f(toprx+(counter),topby-i);
   glEnd();
   glFlush();
   char x = str[j];
   glColor3f(1.0,0.0,0.0);
   drawchar(toprx+i,topty-1-i,&x);
   glFlush();
-    }
-    else if(i<8){
-
-      glColor3f(1.0,1.0,1.0);
-      glBegin(GL_QUADS);
-      glVertex2f(toplx+i-2,topby-i);
-      glVertex2f(toplx+i-2,topty-i);
-      glVertex2f(toprx+i-2,topty-i);
-      glVertex2f(toprx+i-2,topby-i);
-      glEnd();
-      glFlush();
-      char x = str[j];
-      glColor3f(1.0,0.0,0.0);
-      drawchar(toprx+i,topty-1-i,&x);
-      glFlush();
-    }
-    else if(i<13){
-
-      glColor3f(1.0,1.0,1.0);
-      glBegin(GL_QUADS);
-      glVertex2f(toplx+i-3,topby-i);
-      glVertex2f(toplx+i-3,topty-i);
-      glVertex2f(toprx+i-3,topty-i);
-      glVertex2f(toprx+i-3,topby-i);
-      glEnd();
-      glFlush();
-      char x = str[j];
-      glColor3f(1.0,0.0,0.0);
-      drawchar(toprx+i,topty-1-i,&x);
-      glFlush();
-    }
-    else if(i<18){
-      glColor3f(1.0,1.0,1.0);
-      glBegin(GL_QUADS);
-      glVertex2f(toplx+i-4,topby-i);
-      glVertex2f(toplx+i-4,topty-i);
-      glVertex2f(toprx+i-4,topty-i);
-      glVertex2f(toprx+i-4,topby-i);
-      glEnd();
-      glFlush();
-      char x = str[j];
-      glColor3f(1.0,0.0,0.0);
-      drawchar(toprx+i,topty-1-i,&x);
-      glFlush();
-    }
-else if(i<22){
-
-  glColor3f(1.0,1.0,1.0);
-  glBegin(GL_QUADS);
-  glVertex2f(toplx+i-5,topby-i);
-  glVertex2f(toplx+i-5,topty-i);
-  glVertex2f(toprx+i-5,topty-i);
-  glVertex2f(toprx+i-5,topby-i);
-  glEnd();
-  glFlush();
-  char x = str[j];
-  glColor3f(1.0,0.0,0.0);
-  drawchar(toprx+i,topty-1-i,&x);
-  glFlush();
-}
-else if(i<26){
-
-  glColor3f(1.0,1.0,1.0);
-  glBegin(GL_QUADS);
-  glVertex2f(toplx+i-6,topby-i);
-  glVertex2f(toplx+i-6,topty-i);
-  glVertex2f(toprx+i-6,topty-i);
-  glVertex2f(toprx+i-6,topby-i);
-  glEnd();
-  glFlush();
-  char x = str[j];
-  glColor3f(1.0,0.0,0.0);
-  drawchar(toprx+i,topty-1-i,&x);
-  glFlush();
-}
-else if(i<30){
-  glColor3f(1.0,1.0,1.0);
-  glBegin(GL_QUADS);
-  glVertex2f(toplx+i-8,topby-i);
-  glVertex2f(toplx+i-8,topty-i);
-  glVertex2f(toprx+i-8,topty-i);
-  glVertex2f(toprx+i-8,topby-i);
-  glEnd();
-  glFlush();
-  char x = str[j];
-  glColor3f(1.0,0.0,0.0);
-  drawchar(toprx+i,topty-1-i,&x);
-  glFlush();
-}
-else {
-  glColor3f(1.0,1.0,1.0);
-  glBegin(GL_QUADS);
-  glVertex2f(toplx+i-8,topby-i);
-  glVertex2f(toplx+i-8,topty-i);
-  glVertex2f(toprx+i-8,topty-i);
-  glVertex2f(toprx+i-8,topby-i);
-  glEnd();
-  glFlush();
-  char x = str[j];
-  glColor3f(1.0,0.0,0.0);
-  drawchar(toprx+i,topty-1-i,&x);
-  glFlush();
-}
-
-  sleep(1);
+  counter +=0.7;
+printf("%d", counter);
+  usleep(200);
   }
-
   toplx=62;
   topty=33;
   toprx=63;
