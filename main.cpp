@@ -221,7 +221,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(15,topty-1-i,&x);
 glFlush();
-usleep(200);
+usleep(1);
 }
  toplx=15;
  topty=34;
@@ -240,9 +240,9 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(toprx-1+i,33,&x);
 glFlush();
-usleep(200);
+usleep(1);
 }
 toplx=79;
 topty=34;
@@ -261,9 +261,9 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(79.5,topty-1+i,&x);
 glFlush();
-usleep(200);
+sleep(1);
 }
 computer();
 }
@@ -290,7 +290,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(15,topty-1-i,&x);
 glFlush();
-usleep(200);
+usleep(2000);
 }
  toplx=15;
  topty=33.5;
@@ -309,15 +309,15 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(toprx-0.5+i,32,&x);
 glFlush();
-usleep(200);
+usleep(1);
 }
-toplx=33.5;
+toplx=32.5;
 topty=35;
-toprx=32.5;
+toprx=33.5;
 topby=34;
-for(int i=0;i<35;i++)
+for(int i=0;i<40;i++)
 {
     computer();
 glColor3f(1.0,1.0,1.0);
@@ -330,14 +330,14 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(33,topty-1+i,&x);
 glFlush();
-usleep(200);
+usleep(1);
 }
 
-toplx=35;
+toplx=33.5;
 topty=73;
-toprx=36;
+toprx=34.5;
 topby=72.5;
 for(int i=0;i<28;i++)
 {
@@ -352,15 +352,15 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(toplx+0.5+i,72,&x);
 glFlush();
-usleep(200);
+usleep(1);
 }
 
 
-toplx=62;
+toplx=63;
 topty=73;
-toprx=63;
+toprx=62;
 topby=72;
 for(int i=0;i<35;i++)
 {
@@ -375,9 +375,9 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(62.5,topby-i,&x);
 glFlush();
-usleep(200);
+usleep(1);
 }
 toplx=62;
 topty=33;
@@ -396,13 +396,13 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(toplx+0.5+i,32,&x);
 glFlush();
-usleep(200);
+usleep(1);
 }
-toplx=80.5;
-topty=33.5;
-toprx=79.5;
+toplx=79;
+topty=33;
+toprx=81;
 topby=32;
 for(int i=0;i<9;i++)
 {
@@ -417,20 +417,118 @@ glEnd();
 glFlush();
 char x = str[j];
 glColor3f(1.0,0.0,0.0);
-drawchar(15,topty-1-i,&x); //fix this
+drawchar(80,topty-1+i,&x);
 glFlush();
-usleep(200);
+sleep(1);
 }
 computer();
 }
 }
 
+void path3()
+{
+  for(int j=0;j<strlen(str);j++){
+      int toplx=15;
+      int topty=43;
+      int toprx=16;
+      int topby=41;
+  for(int i=0;i<9;i++)
+  {
+      computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx,topby-i);
+  glVertex2f(toplx,topty-i);
+  glVertex2f(toprx,topty-i);
+  glVertex2f(toprx,topby-i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(15,topty-1-i,&x);
+  glFlush();
+  sleep(1);
+  }
+
+  toplx=15;
+  topty=33.5;
+  toprx=16;
+  topby=32.5;
+  for(int i=0;i<11;i++)
+  {
+     computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i,topby);
+  glVertex2f(toplx+i,topty);
+  glVertex2f(toprx+i,topty);
+  glVertex2f(toprx+i,topby);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toprx-0.5+i,32,&x);
+  glFlush();
+  usleep(1);
+  }
+  toplx=32.5;
+  topty=35;
+  toprx=33.5;
+  topby=34;
+  for(int i=0;i<40;i++)
+  {
+      computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx,topby+i);
+  glVertex2f(toplx,topty+i);
+  glVertex2f(toprx,topty+i);
+  glVertex2f(toprx,topby+i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(32.5,topty-1+i,&x);
+  glFlush();
+  usleep(1);
+  }
+
+  toplx=33.5;
+  topty=73;
+  toprx=34.5;
+  topby=72.5;
+  for(int i=0;i<40;i++)
+  {
+      computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i-1,topby-i);
+  glVertex2f(toplx+i-1,topty-i);
+  glVertex2f(toprx+i-1,topty-i);
+  glVertex2f(toprx+i-1,topby-i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toprx+i,topty-1-i,&x);
+  glFlush();
+  sleep(1);
+  }
+
+
+
+}
+computer();
+}
+
 void packettransfer(){
-    int x = rand()%2;
+    /*int x = rand()%3;
     if(x==0)
     path1();
-    else
+    else if(x==1)
     path2();
+    else*/
+    path3();
 }
 void display(void)
 {
