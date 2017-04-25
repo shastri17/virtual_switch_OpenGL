@@ -198,6 +198,7 @@ glVertex2f(60,35);
 glVertex2f(35,35);
 glVertex2f(60,70);
 glEnd();
+
 glFlush();
 }
 
@@ -222,7 +223,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(15,topty-1-i,&x);
 glFlush();
-usleep(1);
+usleep(1000);
 }
  toplx=15;
  topty=34;
@@ -243,7 +244,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(toprx-1+i,33,&x);
 glFlush();
-usleep(1);
+usleep(1000);
 }
 toplx=79;
 topty=34;
@@ -264,7 +265,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(79.5,topty-1+i,&x);
 glFlush();
-sleep(1);
+usleep(1000);
 }
 computer();
 }
@@ -272,9 +273,9 @@ computer();
 
 void path2(){ //top
 for(int j=0;j<strlen(str);j++){
-    int toplx=14.5;
+    int toplx=15;
     int topty=42;
-    int toprx=15.5;
+    int toprx=16;
     int topby=41;
 for(int i=0;i<9;i++)
 {
@@ -291,7 +292,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(15,topty-1-i,&x);
 glFlush();
-usleep(2000);
+usleep(1000);
 }
  toplx=15;
  topty=33.5;
@@ -312,7 +313,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(toprx-0.5+i,32,&x);
 glFlush();
-usleep(1);
+usleep(1000);
 }
 toplx=32.5;
 topty=35;
@@ -333,7 +334,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(33,topty-1+i,&x);
 glFlush();
-usleep(1);
+usleep(1000);
 }
 
 toplx=33.5;
@@ -355,7 +356,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(toplx+0.5+i,72,&x);
 glFlush();
-usleep(1);
+usleep(1000);
 }
 
 
@@ -378,7 +379,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(62.5,topby-i,&x);
 glFlush();
-usleep(1);
+usleep(1000);
 }
 toplx=62;
 topty=33;
@@ -399,7 +400,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(toplx+0.5+i,32,&x);
 glFlush();
-usleep(1);
+usleep(1000);
 }
 toplx=79;
 topty=33;
@@ -420,7 +421,7 @@ char x = str[j];
 glColor3f(1.0,0.0,0.0);
 drawchar(80,topty-1+i,&x);
 glFlush();
-sleep(1);
+usleep(1000);
 }
 computer();
 }
@@ -430,9 +431,9 @@ void path3()// top-diagonal
 {
   for(int j=0;j<strlen(str);j++){
       int toplx=15;
-      int topty=43;
-      int toprx=16;
+      int topty=42;
       int topby=41;
+      int toprx=16;
   for(int i=0;i<9;i++)
   {
       computer();
@@ -448,7 +449,7 @@ void path3()// top-diagonal
   glColor3f(1.0,0.0,0.0);
   drawchar(15,topty-1-i,&x);
   glFlush();
-  usleep(1);
+  usleep(1000);
   }
 
   toplx=15;
@@ -470,7 +471,7 @@ void path3()// top-diagonal
   glColor3f(1.0,0.0,0.0);
   drawchar(toprx-0.5+i,32,&x);
   glFlush();
-  usleep(1);
+  usleep(1000);
   }
   toplx=32.5;
   topty=35;
@@ -491,7 +492,7 @@ void path3()// top-diagonal
   glColor3f(1.0,0.0,0.0);
   drawchar(32.5,topty-1+i,&x);
   glFlush();
-  usleep(1);
+  usleep(1000);
   }
 //diagonal
   toplx=33.5;
@@ -513,11 +514,10 @@ void path3()// top-diagonal
   glFlush();
   char x = str[j];
   glColor3f(1.0,0.0,0.0);
-  drawchar(toprx+i,topty-1-i,&x);
+  drawchar(toprx+(counter)-0.5,topty-1-i,&x);
   glFlush();
   counter +=0.7;
-printf("%d", counter);
-  usleep(200);
+  usleep(1000);
   }
   toplx=62;
   topty=33;
@@ -538,9 +538,9 @@ printf("%d", counter);
   glColor3f(1.0,0.0,0.0);
   drawchar(toplx+0.5+i,32,&x);
   glFlush();
-  sleep(1);
+  usleep(1000);
   }
-  toplx=79;
+  toplx=80;
   topty=33;
   toprx=81;
   topby=32;
@@ -557,9 +557,9 @@ printf("%d", counter);
   glFlush();
   char x = str[j];
   glColor3f(1.0,0.0,0.0);
-  drawchar(80,topty-1+i,&x);
+  drawchar(80.5,topty-1+i,&x);
   glFlush();
-  sleep(1);
+  usleep(1000);
 }
 
 
@@ -568,14 +568,164 @@ printf("%d", counter);
 computer();
 }
 
+void path4() {
+
+  for(int j=0;j<strlen(str);j++){
+      int toplx=15;
+      int topty=42;
+      int toprx=16;
+      int topby=41;
+  for(int i=0;i<9;i++)
+  {
+      computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx,topby-i);
+  glVertex2f(toplx,topty-i);
+  glVertex2f(toprx,topty-i);
+  glVertex2f(toprx,topby-i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(15,topty-1-i,&x);
+  glFlush();
+  usleep(1000);
+  }
+
+  toplx=15;
+  topty=33.5;
+  toprx=16;
+  topby=32.5;
+  for(int i=0;i<15;i++)
+  {
+     computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i,topby);
+  glVertex2f(toplx+i,topty);
+  glVertex2f(toprx+i,topty);
+  glVertex2f(toprx+i,topby);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toprx-0.5+i,32,&x);
+  glFlush();
+  usleep(1000);
+  }
+//bottom diagonal
+
+toplx=32.5;
+topty=33.5;
+toprx=33.5;
+topby=32.5;
+
+for(int i=0; i<40;i++)
+{
+    computer();
+
+glColor3f(1.0,1.0,1.0);
+glBegin(GL_QUADS);
+glVertex2f(toplx+counter,topby+i);
+glVertex2f(toplx+counter,topty+i);
+glVertex2f(toprx+counter,topty+i);
+glVertex2f(toprx+counter,topby+i);
+glEnd();
+glFlush();
+char x = str[j];
+glColor3f(1.0,0.0,0.0);
+drawchar(toprx+(counter)-0.5,topty-1+i,&x);
+glFlush();
+counter +=0.7;
+usleep(1000);
+}
+
+toplx=63;
+topty=73;
+toprx=62;
+topby=72;
+for(int i=0;i<35;i++)
+{
+computer();
+glColor3f(1.0,1.0,1.0);
+glBegin(GL_QUADS);
+glVertex2f(toplx,topby-i);
+glVertex2f(toplx,topty-i);
+glVertex2f(toprx,topty-i);
+glVertex2f(toprx,topby-i);
+glEnd();
+glFlush();
+char x = str[j];
+glColor3f(1.0,0.0,0.0);
+drawchar(62.5,topby-i,&x);
+glFlush();
+usleep(1000);
+}
+toplx=62;
+topty=33;
+toprx=63;
+topby=32;
+for(int i=0;i<15;i++)
+{
+   computer();
+glColor3f(1.0,1.0,1.0);
+glBegin(GL_QUADS);
+glVertex2f(toplx+i,topby);
+glVertex2f(toplx+i,topty);
+glVertex2f(toprx+i,topty);
+glVertex2f(toprx+i,topby);
+glEnd();
+glFlush();
+char x = str[j];
+glColor3f(1.0,0.0,0.0);
+drawchar(toplx+0.5+i,32,&x);
+glFlush();
+usleep(1000);
+}
+toplx=80;
+topty=33;
+toprx=81;
+topby=32;
+for(int i=0;i<9;i++)
+{
+   computer();
+glColor3f(1.0,1.0,1.0);
+glBegin(GL_QUADS);
+glVertex2f(toplx,topby+i);
+glVertex2f(toplx,topty+i);
+glVertex2f(toprx,topty+i);
+glVertex2f(toprx,topby+i);
+glEnd();
+glFlush();
+char x = str[j];
+glColor3f(1.0,0.0,0.0);
+drawchar(80.5,topty-1+i,&x);
+glFlush();
+usleep(1000);
+}
+
+
+
+
+  }
+
+  computer();
+
+}
+
+
+
 void packettransfer(){
-    /*int x = rand()%3;
+    int x = rand()%4;
     if(x==0)
     path1();
     else if(x==1)
     path2();
-    else*/
+    else if(x==2)
     path3();
+    else
+    path4();
 }
 void display(void)
 {
