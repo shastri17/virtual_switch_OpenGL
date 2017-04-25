@@ -447,7 +447,7 @@ void path3()
   glColor3f(1.0,0.0,0.0);
   drawchar(15,topty-1-i,&x);
   glFlush();
-  sleep(1);
+  usleep(1);
   }
 
   toplx=15;
@@ -492,7 +492,7 @@ void path3()
   glFlush();
   usleep(1);
   }
-
+//diagonal
   toplx=33.5;
   topty=73;
   toprx=34.5;
@@ -500,6 +500,7 @@ void path3()
   for(int i=0;i<40;i++)
   {
       computer();
+      if(i<4){
   glColor3f(1.0,1.0,1.0);
   glBegin(GL_QUADS);
   glVertex2f(toplx+i-1,topby-i);
@@ -512,8 +513,155 @@ void path3()
   glColor3f(1.0,0.0,0.0);
   drawchar(toprx+i,topty-1-i,&x);
   glFlush();
+    }
+    else if(i<8){
+
+      glColor3f(1.0,1.0,1.0);
+      glBegin(GL_QUADS);
+      glVertex2f(toplx+i-2,topby-i);
+      glVertex2f(toplx+i-2,topty-i);
+      glVertex2f(toprx+i-2,topty-i);
+      glVertex2f(toprx+i-2,topby-i);
+      glEnd();
+      glFlush();
+      char x = str[j];
+      glColor3f(1.0,0.0,0.0);
+      drawchar(toprx+i,topty-1-i,&x);
+      glFlush();
+    }
+    else if(i<13){
+
+      glColor3f(1.0,1.0,1.0);
+      glBegin(GL_QUADS);
+      glVertex2f(toplx+i-3,topby-i);
+      glVertex2f(toplx+i-3,topty-i);
+      glVertex2f(toprx+i-3,topty-i);
+      glVertex2f(toprx+i-3,topby-i);
+      glEnd();
+      glFlush();
+      char x = str[j];
+      glColor3f(1.0,0.0,0.0);
+      drawchar(toprx+i,topty-1-i,&x);
+      glFlush();
+    }
+    else if(i<18){
+      glColor3f(1.0,1.0,1.0);
+      glBegin(GL_QUADS);
+      glVertex2f(toplx+i-4,topby-i);
+      glVertex2f(toplx+i-4,topty-i);
+      glVertex2f(toprx+i-4,topty-i);
+      glVertex2f(toprx+i-4,topby-i);
+      glEnd();
+      glFlush();
+      char x = str[j];
+      glColor3f(1.0,0.0,0.0);
+      drawchar(toprx+i,topty-1-i,&x);
+      glFlush();
+    }
+else if(i<22){
+
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i-5,topby-i);
+  glVertex2f(toplx+i-5,topty-i);
+  glVertex2f(toprx+i-5,topty-i);
+  glVertex2f(toprx+i-5,topby-i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toprx+i,topty-1-i,&x);
+  glFlush();
+}
+else if(i<26){
+
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i-6,topby-i);
+  glVertex2f(toplx+i-6,topty-i);
+  glVertex2f(toprx+i-6,topty-i);
+  glVertex2f(toprx+i-6,topby-i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toprx+i,topty-1-i,&x);
+  glFlush();
+}
+else if(i<30){
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i-8,topby-i);
+  glVertex2f(toplx+i-8,topty-i);
+  glVertex2f(toprx+i-8,topty-i);
+  glVertex2f(toprx+i-8,topby-i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toprx+i,topty-1-i,&x);
+  glFlush();
+}
+else {
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i-8,topby-i);
+  glVertex2f(toplx+i-8,topty-i);
+  glVertex2f(toprx+i-8,topty-i);
+  glVertex2f(toprx+i-8,topby-i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toprx+i,topty-1-i,&x);
+  glFlush();
+}
+
   sleep(1);
   }
+
+  toplx=62;
+  topty=33;
+  toprx=63;
+  topby=32;
+  for(int i=0;i<15;i++)
+  {
+     computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx+i,topby);
+  glVertex2f(toplx+i,topty);
+  glVertex2f(toprx+i,topty);
+  glVertex2f(toprx+i,topby);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(toplx+0.5+i,32,&x);
+  glFlush();
+  sleep(1);
+  }
+  toplx=79;
+  topty=33;
+  toprx=81;
+  topby=32;
+  for(int i=0;i<9;i++)
+  {
+     computer();
+  glColor3f(1.0,1.0,1.0);
+  glBegin(GL_QUADS);
+  glVertex2f(toplx,topby+i);
+  glVertex2f(toplx,topty+i);
+  glVertex2f(toprx,topty+i);
+  glVertex2f(toprx,topby+i);
+  glEnd();
+  glFlush();
+  char x = str[j];
+  glColor3f(1.0,0.0,0.0);
+  drawchar(80,topty-1+i,&x);
+  glFlush();
+  sleep(1);
+}
 
 
 
